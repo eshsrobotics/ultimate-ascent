@@ -21,23 +21,28 @@ import com.eshsrobotics.ultimateascent.commands.ExampleCommand;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot
+{
 
-    Command autonomousCommand;
+    Command autonomousCommand, driveCommand, climbCommand;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
+    public void robotInit()
+    {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
+        driveCommand = new ExampleCommand();
+        climbCommand = new ExampleCommand();
 
         // Initialize all subsystems
         CommandBase.init();
     }
 
-    public void autonomousInit() {
+    public void autonomousInit()
+    {
         // schedule the autonomous command (example)
         autonomousCommand.start();
     }
@@ -45,11 +50,13 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during autonomous
      */
-    public void autonomousPeriodic() {
+    public void autonomousPeriodic()
+    {
         Scheduler.getInstance().run();
     }
 
-    public void teleopInit() {
+    public void teleopInit()
+    {
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
@@ -60,7 +67,8 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during operator control
      */
-    public void teleopPeriodic() {
+    public void teleopPeriodic()
+    {
         Scheduler.getInstance().run();
     }
 }
