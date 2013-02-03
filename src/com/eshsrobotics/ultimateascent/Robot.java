@@ -24,7 +24,8 @@ import com.eshsrobotics.ultimateascent.commands.ExampleCommand;
 public class Robot extends IterativeRobot
 {
 
-    Command autonomousCommand, climbCommand;
+
+    Command autonomousCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -34,8 +35,6 @@ public class Robot extends IterativeRobot
     {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
-        climbCommand = new ExampleCommand();
-
         // Initialize all subsystems
         CommandBase.init();
     }
