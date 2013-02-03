@@ -4,6 +4,7 @@
  */
 package com.eshsrobotics.ultimateascent.subsystems;
 
+import com.eshsrobotics.ultimateascent.commands.DriveCommand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -14,11 +15,14 @@ public class DriveTrain extends Subsystem
 {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
+    public DriveTrain(int left, int right)
+    {
+        
+    }
     public void initDefaultCommand()
     {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+       setDefaultCommand(new DriveCommand());
     }
 }
 

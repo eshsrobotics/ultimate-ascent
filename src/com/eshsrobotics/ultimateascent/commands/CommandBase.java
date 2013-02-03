@@ -3,6 +3,7 @@ package com.eshsrobotics.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.eshsrobotics.ultimateascent.OI;
+import com.eshsrobotics.ultimateascent.RobotMap;
 import com.eshsrobotics.ultimateascent.subsystems.DriveTrain;
 import com.eshsrobotics.ultimateascent.subsystems.ExampleSubsystem;
 
@@ -12,21 +13,22 @@ import com.eshsrobotics.ultimateascent.subsystems.ExampleSubsystem;
  * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
  * @author Author
  */
-public abstract class CommandBase extends Command {
+public abstract class CommandBase extends Command 
+{
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-    public static DriveTrain chassis;
+    public static DriveTrain chassis = new DriveTrain(RobotMap.leftMotor, RobotMap.rightMotor);
 
-    public static void init() {
+    public static void init()
+    {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-        chassis = new DriveTrain();
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);
     }
