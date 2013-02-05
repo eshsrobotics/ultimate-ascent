@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.eshsrobotics.ultimateascent.OI;
 import com.eshsrobotics.ultimateascent.RobotMap;
+import com.eshsrobotics.ultimateascent.subsystems.Climber;
 import com.eshsrobotics.ultimateascent.subsystems.DriveTrain;
 import com.eshsrobotics.ultimateascent.subsystems.ExampleSubsystem;
 
@@ -19,7 +20,10 @@ public abstract class CommandBase extends Command
     public static OI oi;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-    public static DriveTrain chassis = new DriveTrain(RobotMap.leftMotor, RobotMap.rightMotor);
+    public static DriveTrain chassis = new DriveTrain(RobotMap.leftDriveMotor, 
+            RobotMap.rightDriveMotor);
+    public static Climber climber = new Climber(RobotMap.leftClimbMotor,
+            RobotMap.rightClimbMotor,RobotMap.leftServo,RobotMap.rightServo);
 
     public static void init()
     {

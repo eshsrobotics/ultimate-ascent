@@ -22,9 +22,11 @@ public class OI {
     
     public Joystick firstJ = new Joystick(1);
     public Joystick secondJ = new Joystick(2);
-    public Joystick thirdJ = new Joystick(3);
+    public Joystick climbJ = new Joystick(3);
     public JoystickButton startClimbB = new JoystickButton(firstJ, startClimbButton);
     public JoystickButton endClimbB = new JoystickButton(firstJ, endClimbButton);
+    
+    
     public OI()
     {
      startClimbB.whenPressed(new ClimbCommand());  
