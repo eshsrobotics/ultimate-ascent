@@ -37,6 +37,7 @@ public class Robot extends IterativeRobot
         autonomousCommand = new ExampleCommand();
         // Initialize all subsystems
         CommandBase.init();
+        CommandBase.gryo.reset();
     }
 
     public void autonomousInit()
