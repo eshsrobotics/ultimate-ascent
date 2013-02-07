@@ -17,6 +17,8 @@ public class RobotMap {
     
     public static final int leftServo = 5;
     public static final int rightServo = 6;
+    
+    public static final int gyro = 1;
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
     // public static final int rangefinderPort = 1;

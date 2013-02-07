@@ -7,6 +7,7 @@ import com.eshsrobotics.ultimateascent.RobotMap;
 import com.eshsrobotics.ultimateascent.subsystems.Climber;
 import com.eshsrobotics.ultimateascent.subsystems.DriveTrain;
 import com.eshsrobotics.ultimateascent.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.Gyro;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -24,6 +25,7 @@ public abstract class CommandBase extends Command
             RobotMap.rightDriveMotor);
     public static Climber climber = new Climber(RobotMap.leftClimbMotor,
             RobotMap.rightClimbMotor,RobotMap.leftServo,RobotMap.rightServo);
+    public static Gyro gryo = new Gyro(RobotMap.gyro);
 
     public static void init()
     {
