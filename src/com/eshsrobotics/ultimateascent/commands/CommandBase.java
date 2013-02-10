@@ -22,10 +22,10 @@ public abstract class CommandBase extends Command
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static DriveTrain chassis = new DriveTrain(RobotMap.leftDriveMotor, 
-            RobotMap.rightDriveMotor);
+            RobotMap.rightDriveMotor, RobotMap.driveG);
     public static Climber climber = new Climber(RobotMap.leftClimbMotor,
-            RobotMap.rightClimbMotor,RobotMap.leftServo,RobotMap.rightServo);
-    public static Gyro gryo = new Gyro(RobotMap.gyro);
+            RobotMap.rightClimbMotor,RobotMap.leftServo,RobotMap.rightServo,
+            RobotMap.climbG);
 
     public static void init()
     {
@@ -35,6 +35,8 @@ public abstract class CommandBase extends Command
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
+                
+                
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);
     }
