@@ -9,11 +9,11 @@ package com.eshsrobotics.ultimateascent;
 public class RobotMap {
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
-    public static final int leftDriveMotor = 1;
-    public static final int rightDriveMotor = 2;
+    public static final int leftDriveMotor = 4;
+    public static final int rightDriveMotor = 3;
     
-    public static final int leftClimbMotor = 3;
-    public static final int rightClimbMotor = 4;
+    public static final int leftClimbMotor = 1;
+    public static final int rightClimbMotor = 2;
     
     public static final int leftServo = 5;
     public static final int rightServo = 6;
