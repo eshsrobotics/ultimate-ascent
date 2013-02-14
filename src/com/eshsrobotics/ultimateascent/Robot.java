@@ -8,6 +8,7 @@
 package com.eshsrobotics.ultimateascent;
 
 
+import com.eshsrobotics.ultimateascent.commands.AutonomousCommand;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -34,11 +35,13 @@ public class Robot extends IterativeRobot
     public void robotInit()
     {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        autonomousCommand = new AutonomousCommand();
         // Initialize all subsystems
         CommandBase.init();
         CommandBase.chassis.gyro.reset();
         CommandBase.climber.gyro.reset();
+        
+        System.out.println("Success");
                 
     }
 
