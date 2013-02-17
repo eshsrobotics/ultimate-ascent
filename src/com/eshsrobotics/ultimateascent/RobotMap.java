@@ -8,7 +8,7 @@ package com.eshsrobotics.ultimateascent;
  */
 public class RobotMap
 {
-    //---------------------Motors------------------------------------
+    //---------------------Motors---------------------
     public static final int leftDriveMotor = 5;
     public static final int rightDriveMotor = 1;
 
@@ -21,7 +21,7 @@ public class RobotMap
     public static final int leftServo = 7;
     public static final int rightServo = 3;
 
-    //---------------------Sensors-----------------------------------
+    //---------------------Sensors---------------------
     public static final int driveG = 1;
     public static final int climbG = 2;
 }
