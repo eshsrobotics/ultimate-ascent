@@ -26,16 +26,17 @@ public class ClimberDefault extends CommandBase
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        if(oi.climbJ.getRawButton(9))
+        /*if(oi.climbJ.getRawButton(9))
             climber.angleFromOperator++;
         if(oi.climbJ.getRawButton(11))
-            climber.angleFromOperator--;
-        climber.leftS.setAngle(climber.angleFromOperator);
-        climber.rightS.setAngle(climber.angleFromOperator);
-        climber.leftM.set(-oi.firstJ.getY());
-        climber.rightM.set(-oi.secondJ.getY());
-        climber.leftSecondaryM.set((-oi.firstJ.getY()>0)?-oi.firstJ.getY():0);
-        climber.rightSecondaryM.set((-oi.secondJ.getY()>0)?-oi.secondJ.getY():0);
+            climber.angleFromOperator--;*/
+        climber.leftS.set(1-.93*oi.climbJ.getThrottle()/6-.10);
+        climber.rightS.set(oi.climbJ.getThrottle()/6+.15);
+        System.out.println(oi.climbJ.getThrottle());
+        climber.leftM.set(-oi.climbJ.getY()/2+oi.climbJ.getX()/2);
+        climber.rightM.set(-oi.climbJ.getY()/2-oi.climbJ.getX()/2);
+        climber.leftSecondaryM.set((-oi.climbJ.getY()/2+oi.climbJ.getX()/2<-.1)?-1:0);
+        climber.rightSecondaryM.set((-oi.climbJ.getY()/2-oi.climbJ.getX()/2<-.1)?-1:0);
         if(oi.climbJ.getTrigger()){ //button to full reverse
          climber.leftM.set(-1);
          climber.rightM.set(-1); 

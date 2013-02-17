@@ -26,16 +26,7 @@ public class AutonomousCommand extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        while(true)
-        {
-            for(int i = 0; i < 180; i+=10)
-            {
-            climber.leftS.setPosition(i);
-            System.out.println(i);
-            while(!oi.climbJ.getTrigger());
-            }
-            
-        }
+        climber.leftS.set(.66);
             
     }
 

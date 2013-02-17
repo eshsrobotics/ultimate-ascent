@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem
     {
         this.left = new Jaguar(left);
         this.right = new Jaguar(right);
-        this.gyro = new Gyro(gyro);
+        //this.gyro = new Gyro(gyro);
         
     }
     public void initDefaultCommand()

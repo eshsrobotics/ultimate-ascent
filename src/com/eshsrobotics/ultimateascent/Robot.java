@@ -38,8 +38,8 @@ public class Robot extends IterativeRobot
         autonomousCommand = new AutonomousCommand();
         // Initialize all subsystems
         CommandBase.init();
-        CommandBase.chassis.gyro.reset();
-        CommandBase.climber.gyro.reset();
+       // CommandBase.chassis.gyro.reset();
+       // CommandBase.climber.gyro.reset();
         
         System.out.println("Success");
                 
@@ -73,6 +73,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
+        //System.out.println("test 1");
         Scheduler.getInstance().run();
     }
 }

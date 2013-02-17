@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.PWM;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -18,7 +19,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Climber extends Subsystem
 {
     public Jaguar leftM, rightM;
-    public Servo leftS, rightS, leftSecondaryM, rightSecondaryM;
+    public Servo leftS, rightS;
+    public Victor leftSecondaryM, rightSecondaryM;
     public int angleFromOperator = 0;
     public Gyro gyro;
     // Put methods for controlling this subsystem
@@ -29,8 +31,8 @@ public class Climber extends Subsystem
         //initialize Jaguars
         this.leftM = new Jaguar(leftM);
         this.rightM = new Jaguar(rightM);
-        this.leftSecondaryM = new Servo(leftSecondaryM); // hacking a bit here
-        this.rightSecondaryM = new Servo(rightSecondaryM);//using servo class
+        this.leftSecondaryM = new Victor(leftSecondaryM); // hacking a bit here
+        this.rightSecondaryM = new Victor(rightSecondaryM);//using servo class
         //initialize servos                                 for vex motors
         this.leftS = new Servo(leftS);
         this.rightS = new Servo(rightS);
