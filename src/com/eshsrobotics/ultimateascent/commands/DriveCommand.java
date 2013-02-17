@@ -5,48 +5,43 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 /**
+ * Default drive train command. Simple sets the speed of the jaguars to the input from the joysticks.
+ *
  * @author Benjamin Landers
  */
 public class DriveCommand extends CommandBase
 {
-
     public DriveCommand()
     {
         requires(chassis);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize()
     {
-
+        System.out.println("Drive command initialized.");
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        chassis.left.set(-oi.firstJ.getY());//*oi.firstJ.getThrottle());
-        chassis.right.set(oi.secondJ.getY());//*oi.secondJ.getThrottle());
+        chassis.left.set(-oi.firstJ.getY());
+        chassis.right.set(oi.secondJ.getY());
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
         return false;
     }
 
-    // Called once after isFinished returns true
     protected void end()
     {
-
+        System.out.println("Drive command ended.");
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted()
     {
         chassis.left.set(0);
         chassis.right.set(0);
+
+        System.out.println("Drive command interrupted.");
     }
 }

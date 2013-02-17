@@ -1,21 +1,20 @@
 package com.eshsrobotics.ultimateascent.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import com.eshsrobotics.ultimateascent.OI;
 import com.eshsrobotics.ultimateascent.RobotMap;
 import com.eshsrobotics.ultimateascent.subsystems.Climber;
 import com.eshsrobotics.ultimateascent.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
  *
- * @author Author
+ * @author Benjamin Landers, Zachary Latta
  */
 public abstract class CommandBase extends Command
 {
-
     public static OI oi;
     public static DriveTrain chassis = new DriveTrain(RobotMap.leftDriveMotor,
             RobotMap.rightDriveMotor, RobotMap.driveG);
@@ -24,14 +23,9 @@ public abstract class CommandBase extends Command
             RobotMap.leftSecondaryMotor, RobotMap.leftServo, RobotMap.rightServo,
             RobotMap.climbG);
 
-    public static void init()
+    public CommandBase()
     {
-        // This MUST be here. If the OI creates Commands (which it very likely
-        // will), constructing it during the construction of CommandBase (from
-        // which commands extend), subsystems are not guaranteed to be
-        // yet. Thus, their requires() statements may grab null pointers. Bad
-        // news. Don't move it.
-        oi = new OI();
+        super();
     }
 
     public CommandBase(String name)
@@ -39,8 +33,10 @@ public abstract class CommandBase extends Command
         super(name);
     }
 
-    public CommandBase()
+    public static void init()
     {
-        super();
+        oi = new OI();
+
+        System.out.println("Command base initialized.");
     }
 }

@@ -8,9 +8,7 @@ package com.eshsrobotics.ultimateascent;
  */
 public class RobotMap
 {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    //----------------Motors------------------------------------------------s
+    //---------------------Motors------------------------------------
     public static final int leftDriveMotor = 5;
     public static final int rightDriveMotor = 1;
 
@@ -23,11 +21,7 @@ public class RobotMap
     public static final int leftServo = 7;
     public static final int rightServo = 3;
 
-    //---------------------Senors-----------------------------------
+    //---------------------Sensors-----------------------------------
     public static final int driveG = 1;
     public static final int climbG = 2;
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static final int rangefinderPort = 1;
-    // public static final int rangefinderModule = 1;
 }

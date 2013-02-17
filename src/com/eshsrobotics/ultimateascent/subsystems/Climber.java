@@ -7,12 +7,13 @@ package com.eshsrobotics.ultimateascent.subsystems;
 import com.eshsrobotics.ultimateascent.commands.ClimberDefault;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.PWM;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
+ * Provides abstraction to the Climber subsystem of the robot.
+ *
  * @author Benjamin Landers
  */
 public class Climber extends Subsystem
@@ -20,30 +21,26 @@ public class Climber extends Subsystem
     public Jaguar leftM, rightM;
     public Servo leftS, rightS;
     public Victor leftSecondaryM, rightSecondaryM;
-    public int angleFromOperator = 0;
     public Gyro gyro;
+    public int angleFromOperator = 0;
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    public Climber(int leftM, int rightM, int leftSecondaryM, int rightSecondaryM
-            , int leftS, int rightS, int gyro)
+    public Climber(int leftM, int rightM, int leftSecondaryM, int rightSecondaryM, int leftS, int rightS, int gyro)
     {
-        //initialize Jaguars
         this.leftM = new Jaguar(leftM);
         this.rightM = new Jaguar(rightM);
-        this.leftSecondaryM = new Victor(leftSecondaryM); // hacking a bit here
-        this.rightSecondaryM = new Victor(rightSecondaryM);//using servo class
-        //initialize servos                                 for vex motors
+        this.leftSecondaryM = new Victor(leftSecondaryM);
+        this.rightSecondaryM = new Victor(rightSecondaryM);
         this.leftS = new Servo(leftS);
         this.rightS = new Servo(rightS);
-        //init gyro
-        //this.gyro = new Gyro(gyro);
+        this.gyro = new Gyro(gyro);
 
+        System.out.println("Climber subsystem instantiated.");
     }
 
     public void initDefaultCommand()
     {
-        // Set the default command for a subsystem here.
         setDefaultCommand(new ClimberDefault());
+
+        System.out.println("Climber subsystem default command set to ClimberDefault().");
     }
 }
