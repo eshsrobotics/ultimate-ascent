@@ -6,22 +6,23 @@ package com.eshsrobotics.ultimateascent;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap {
+public class RobotMap
+{
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     //----------------Motors------------------------------------------------s
     public static final int leftDriveMotor = 5;
     public static final int rightDriveMotor = 1;
-    
+
     public static final int leftClimbMotor = 6;
     public static final int rightClimbMotor = 2;
-    
+
     public static final int rightSecondaryMotor = 4;
     public static final int leftSecondaryMotor = 8;
-    
+
     public static final int leftServo = 7;
     public static final int rightServo = 3;
-    
+
     //---------------------Senors-----------------------------------
     public static final int driveG = 1;
     public static final int climbG = 2;

@@ -5,12 +5,15 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 /**
- *Command for autonomous
+ * Command for autonomous
+ *
  * @author Benjamin Landers
  */
-public class AutonomousCommand extends CommandBase {
+public class AutonomousCommand extends CommandBase
+{
 
-    public AutonomousCommand() {
+    public AutonomousCommand()
+    {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(chassis);
@@ -18,16 +21,16 @@ public class AutonomousCommand extends CommandBase {
     }
 
     // Called just before this Command runs the first time
-    protected void initialize() 
+    protected void initialize()
     {
-        
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
         climber.leftS.set(.66);
-            
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,9 +40,9 @@ public class AutonomousCommand extends CommandBase {
     }
 
     // Called once after isFinished returns true
-    protected void end() 
+    protected void end()
     {
-        
+
     }
 
     // Called when another command which requires one or more of the same

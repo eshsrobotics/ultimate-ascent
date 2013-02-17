@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
  * @author Benjamin Landers
  */
 public class Climber extends Subsystem
@@ -23,9 +22,10 @@ public class Climber extends Subsystem
     public Victor leftSecondaryM, rightSecondaryM;
     public int angleFromOperator = 0;
     public Gyro gyro;
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public Climber(int leftM, int rightM,int leftSecondaryM,int rightSecondaryM
+    public Climber(int leftM, int rightM, int leftSecondaryM, int rightSecondaryM
             , int leftS, int rightS, int gyro)
     {
         //initialize Jaguars
@@ -38,11 +38,12 @@ public class Climber extends Subsystem
         this.rightS = new Servo(rightS);
         //init gyro
         //this.gyro = new Gyro(gyro);
-        
+
     }
+
     public void initDefaultCommand()
     {
         // Set the default command for a subsystem here.
-       setDefaultCommand(new ClimberDefault());
+        setDefaultCommand(new ClimberDefault());
     }
 }

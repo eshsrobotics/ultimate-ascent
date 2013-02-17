@@ -5,7 +5,6 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 /**
- *
  * @author Benjamin Landers
  */
 public class DriveCommand extends CommandBase
@@ -21,11 +20,11 @@ public class DriveCommand extends CommandBase
     // Called just before this Command runs the first time
     protected void initialize()
     {
-        
+
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() 
+    protected void execute()
     {
         chassis.left.set(-oi.firstJ.getY());//*oi.firstJ.getThrottle());
         chassis.right.set(oi.secondJ.getY());//*oi.secondJ.getThrottle());
@@ -40,7 +39,7 @@ public class DriveCommand extends CommandBase
     // Called once after isFinished returns true
     protected void end()
     {
-        
+
     }
 
     // Called when another command which requires one or more of the same

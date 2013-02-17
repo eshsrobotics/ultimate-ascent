@@ -37,11 +37,11 @@ public class Robot extends IterativeRobot
         autonomousCommand = new AutonomousCommand();
         // Initialize all subsystems
         CommandBase.init();
-       // CommandBase.chassis.gyro.reset();
-       // CommandBase.climber.gyro.reset();
-        
+        // CommandBase.chassis.gyro.reset();
+        // CommandBase.climber.gyro.reset();
+
         System.out.println("Success");
-                
+
     }
 
     public void autonomousInit()
@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot
 
     public void teleopInit()
     {
-	// This makes sure that the autonomous stops running when
+        // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
