@@ -54,10 +54,12 @@ public class Robot extends IterativeRobot
     {
         autonomousCommand.cancel();
         System.out.println("Autonomous command stopped.");
+        OI.dualClimb = false;
     }
 
     public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
     }
+   
 }
