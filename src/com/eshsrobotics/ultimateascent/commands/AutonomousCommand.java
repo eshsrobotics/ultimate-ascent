@@ -24,7 +24,6 @@ public class AutonomousCommand extends CommandBase
 
     protected void execute()
     {
-
     }
 
     protected boolean isFinished()

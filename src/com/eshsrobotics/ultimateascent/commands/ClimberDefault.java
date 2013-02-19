@@ -24,7 +24,7 @@ public class ClimberDefault extends CommandBase
 
     protected void execute()
     {
-        climber.leftS.set(-oi.climbJ.getThrottle()/4.5+.25);//1-.93*oi.climbJ.getThrottle()/6-.10);
+        climber.leftS.set(-oi.climbJ.getThrottle()/4.5+.25);//1	-.93*oi.climbJ.getThrottle()/6-.10);
         System.out.println(oi.climbJ.getThrottle());
         climber.rightS.set(oi.climbJ.getThrottle()/6+.15);
         if(!oi.dualClimb)
