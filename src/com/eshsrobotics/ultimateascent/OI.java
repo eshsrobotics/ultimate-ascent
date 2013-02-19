@@ -1,6 +1,7 @@
 
 package com.eshsrobotics.ultimateascent;
 
+import com.eshsrobotics.ultimateascent.commands.ChangeClimbSystem;
 import com.eshsrobotics.ultimateascent.commands.ClimbCommand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -20,6 +21,8 @@ public class OI {
     public static final int startClimbButton = 1;
     public static final int endClimbButton = 1;
     
+    public static boolean dualClimb = false;
+    
     public Joystick firstJ = new Joystick(1);
     public Joystick secondJ = new Joystick(2);
     public Joystick climbJ = new Joystick(3);
@@ -29,7 +32,7 @@ public class OI {
     
     public OI()
     {
-     startClimbB.whenPressed(new ClimbCommand());  
+     startClimbB.whenPressed(new ChangeClimbSystem());  
     }
     
     

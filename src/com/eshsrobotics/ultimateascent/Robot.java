@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import com.eshsrobotics.ultimateascent.commands.CommandBase;
+import com.eshsrobotics.ultimateascent.commands.ExampleCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -65,6 +66,7 @@ public class Robot extends IterativeRobot
         // continue until interrupted by another command, remove
         // this line or comment it out.
         autonomousCommand.cancel();
+        OI.dualClimb = false;
     }
 
     /**
@@ -75,4 +77,5 @@ public class Robot extends IterativeRobot
         //System.out.println("test 1");
         Scheduler.getInstance().run();
     }
+   
 }

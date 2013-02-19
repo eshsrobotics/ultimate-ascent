@@ -27,8 +27,15 @@ public class DriveCommand extends CommandBase
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-        chassis.left.set(-oi.firstJ.getY());//*oi.firstJ.getThrottle());
-        chassis.right.set(oi.secondJ.getY());//*oi.secondJ.getThrottle());
+        if(!oi.dualClimb)
+        {
+            chassis.left.set(-oi.firstJ.getY());//*oi.firstJ.getThrottle());
+            chassis.right.set(oi.secondJ.getY());//*oi.secondJ.getThrottle());
+        }else
+        {
+            chassis.right.set(0);
+            chassis.left.set(0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
