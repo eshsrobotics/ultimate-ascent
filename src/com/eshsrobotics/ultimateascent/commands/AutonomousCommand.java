@@ -20,7 +20,6 @@ public class AutonomousCommand extends CommandBase
 
     protected void execute()
     {
-        climber.leftS.set(.66);
     }
 
     protected boolean isFinished()

@@ -1,5 +1,6 @@
 package com.eshsrobotics.ultimateascent;
 
+import com.eshsrobotics.ultimateascent.commands.ChangeClimbSystem;
 import com.eshsrobotics.ultimateascent.commands.ClimbCommand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -12,6 +13,8 @@ public class OI
 {
     public static final int startClimbButton = 1;
     public static final int endClimbButton = 1;
+    
+    public static boolean dualClimb = false;
 
     public Joystick firstJ = new Joystick(1);
     public Joystick secondJ = new Joystick(2);
@@ -21,9 +24,8 @@ public class OI
 
     public OI()
     {
-        startClimbB.whenPressed(new ClimbCommand());
-
         System.out.println("Operator interface instantiated.");
+        startClimbB.whenPressed(new ChangeClimbSystem());  
     }
 }
 

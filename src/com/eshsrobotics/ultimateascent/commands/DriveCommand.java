@@ -19,8 +19,15 @@ public class DriveCommand extends CommandBase
 
     protected void execute()
     {
-        chassis.left.set(-oi.firstJ.getY());
-        chassis.right.set(oi.secondJ.getY());
+        if(!oi.dualClimb)
+        {
+            chassis.left.set(-oi.firstJ.getY());//*oi.firstJ.getThrottle());
+            chassis.right.set(oi.secondJ.getY());//*oi.secondJ.getThrottle());
+        }else
+        {
+            chassis.right.set(0);
+            chassis.left.set(0);
+        }
     }
 
     protected boolean isFinished()
