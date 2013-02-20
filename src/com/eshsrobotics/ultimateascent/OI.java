@@ -1,4 +1,3 @@
-
 package com.eshsrobotics.ultimateascent;
 
 import com.eshsrobotics.ultimateascent.commands.ClimbCommand;
