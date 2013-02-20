@@ -5,7 +5,6 @@ import com.eshsrobotics.ultimateascent.commands.CommandBase;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import com.eshsrobotics.ultimateascent.commands.CommandBase;
 
 
 /**
@@ -47,16 +46,14 @@ public class Robot extends IterativeRobot
     public void teleopInit()
     {
         autonomousCommand.cancel();
-<<<<<<< HEAD
         System.out.println("Autonomous command stopped.");
-=======
->>>>>>> non-robot-builder
+
         OI.dualClimb = false;
+        System.out.println("Dual climb set to false.");
     }
 
     public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
     }
-   
 }

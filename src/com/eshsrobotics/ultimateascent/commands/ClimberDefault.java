@@ -20,46 +20,51 @@ public class ClimberDefault extends CommandBase
 
     protected void execute()
     {
-        climber.leftS.set(-oi.climbJ.getThrottle()/4.5+.25);//1	-.93*oi.climbJ.getThrottle()/6-.10);
+        climber.leftS.set(-oi.climbJ.getThrottle() / 4.5 + .25);
         System.out.println(oi.climbJ.getThrottle());
-        climber.rightS.set(oi.climbJ.getThrottle()/6+.15);
-        if(!oi.dualClimb)
-        {
-        if(!oi.climbJ.getRawButton(12))
-        {
-            climber.leftM.set(-oi.climbJ.getY());
-            climber.leftSecondaryM.set((-oi.climbJ.getY()/2>0.05)?-1:0);
-        }
-        if(!oi.climbJ.getRawButton(11))
-        {
-            climber.rightM.set(-oi.climbJ.getY());
-            climber.rightSecondaryM.set((-oi.climbJ.getY()> 0.05)?-1:0);
-        }
-        
+        climber.rightS.set(oi.climbJ.getThrottle() / 6 + .15);
 
-        if(oi.climbJ.getTrigger()){ //button to full reverse
-         climber.leftM.set(-1);
-         climber.rightM.set(-1); 
-         
-         climber.leftSecondaryM.set(0);
-         climber.rightSecondaryM.set(0);
-        }
-        }else
+        if (!oi.dualClimb)
         {
-            
-            
+            if (!oi.climbJ.getRawButton(12))
+            {
+                climber.leftM.set(-oi.climbJ.getY());
+                climber.leftSecondaryM.set((-oi.climbJ.getY() / 2 > 0.05) ? -1 : 0);
+            }
+
+            if (!oi.climbJ.getRawButton(11))
+            {
+                climber.rightM.set(-oi.climbJ.getY());
+                climber.rightSecondaryM.set((-oi.climbJ.getY() > 0.05) ? -1 : 0);
+            }
+
+            if (oi.climbJ.getTrigger())
+            { //button to full reverse
+                climber.leftM.set(-1);
+                climber.rightM.set(-1);
+
+                climber.leftSecondaryM.set(0);
+                climber.rightSecondaryM.set(0);
+            }
+        }
+        else
+        {
+
+
             climber.leftM.set(-oi.firstJ.getY());
-            climber.leftSecondaryM.set((-oi.firstJ.getY()/2>0.05)?-1:0);
+            climber.leftSecondaryM.set((-oi.firstJ.getY() / 2 > 0.05) ? -1 : 0);
 
             climber.rightM.set(-oi.secondJ.getY());
-            climber.rightSecondaryM.set((-oi.secondJ.getY()> 0.05)?-1:0);
-         if(oi.firstJ.getTrigger()){ //button to full reverse
-         climber.leftM.set(-1);
-         climber.rightM.set(-1); 
-         
-         climber.leftSecondaryM.set(0);
-         climber.rightSecondaryM.set(0);
-        }
+            climber.rightSecondaryM.set((-oi.secondJ.getY() > 0.05) ? -1 : 0);
+
+            if (oi.firstJ.getTrigger())
+            { //button to full reverse
+                climber.leftM.set(-1);
+                climber.rightM.set(-1);
+
+                climber.leftSecondaryM.set(0);
+                climber.rightSecondaryM.set(0);
+            }
         }
     }
 
