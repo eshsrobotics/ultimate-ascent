@@ -10,6 +10,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI
 {
+    /**
+     * Joystick threshold provides some margin from neutral joystick position.
+     */
+    public static final float JOYSTICK_THRESHOLD = 0.05f;
+
     public static final int startClimbButton = 1;
     public static final int endClimbButton = 1;
 
