@@ -10,6 +10,11 @@ import com.eshsrobotics.ultimateascent.OI;
  */
 public class ClimberDefault extends CommandBase
 {
+    /**
+     * The speed at which the climbing motors should move when a
+     */
+    public float CLIMB_SPEED = -1f;
+
     public ClimberDefault()
     {
         requires(climber);
@@ -45,8 +50,8 @@ public class ClimberDefault extends CommandBase
 
             if(oi.cameraJ.getTrigger())
             { //button to full reverse
-                climber.leftM.set(-1);
-                climber.rightM.set(-1);
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
 
                 climber.leftSecondaryM.set(0);
                 climber.rightSecondaryM.set(0);
@@ -62,8 +67,8 @@ public class ClimberDefault extends CommandBase
 
             if(oi.leftJ.getTrigger() || oi.rightJ.getTrigger())
             { //button to full reverse
-                climber.leftM.set(-1);
-                climber.rightM.set(-1);
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
 
                 climber.leftSecondaryM.set(0);
                 climber.rightSecondaryM.set(0);
