@@ -10,6 +10,11 @@ import com.eshsrobotics.ultimateascent.OI;
  */
 public class ClimberDefault extends CommandBase
 {
+    /**
+     * The speed at which the climbing motors should move when a
+     */
+    public float CLIMB_SPEED = -1f;
+
     public ClimberDefault()
     {
         requires(climber);
@@ -29,24 +34,24 @@ public class ClimberDefault extends CommandBase
         climber.leftS.set(-oi.climbJ.getThrottle() / 4.5 + .25);
         climber.rightS.set(oi.climbJ.getThrottle() / 6 + .15);
 
-        if(!oi.dualClimb)
+        if(!OI.dualClimb)
         {
             if(!oi.climbJ.getRawButton(12))
             {
                 climber.leftM.set(-oi.climbJ.getY());
-                climber.leftSecondaryM.set((-oi.climbJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                climber.leftSecondaryM.set((-oi.climbJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? CLIMB_SPEED : 0);
             }
 
             if(!oi.climbJ.getRawButton(11))
             {
                 climber.rightM.set(-oi.climbJ.getY());
-                climber.rightSecondaryM.set((-oi.climbJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                climber.rightSecondaryM.set((-oi.climbJ.getY() > OI.JOYSTICK_THRESHOLD) ? CLIMB_SPEED : 0);
             }
 
             if(oi.climbJ.getTrigger())
             { //button to full reverse
-                climber.leftM.set(-1);
-                climber.rightM.set(-1);
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
 
                 climber.leftSecondaryM.set(0);
                 climber.rightSecondaryM.set(0);
@@ -55,15 +60,15 @@ public class ClimberDefault extends CommandBase
         else
         {
             climber.leftM.set(-oi.firstJ.getY());
-            climber.leftSecondaryM.set((-oi.firstJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+            climber.leftSecondaryM.set((-oi.firstJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? CLIMB_SPEED : 0);
 
             climber.rightM.set(-oi.secondJ.getY());
-            climber.rightSecondaryM.set((-oi.secondJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+            climber.rightSecondaryM.set((-oi.secondJ.getY() > OI.JOYSTICK_THRESHOLD) ? CLIMB_SPEED : 0);
 
             if(oi.firstJ.getTrigger())
             { //button to full reverse
-                climber.leftM.set(-1);
-                climber.rightM.set(-1);
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
 
                 climber.leftSecondaryM.set(0);
                 climber.rightSecondaryM.set(0);
