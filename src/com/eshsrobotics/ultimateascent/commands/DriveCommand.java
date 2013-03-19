@@ -1,7 +1,8 @@
 package com.eshsrobotics.ultimateascent.commands;
 
+
 /**
- * Default drive train command. Simple sets the speed of the jaguars to the input from the joysticks.
+ * Default drive train command. Simple sets the speed of the Jaguars to the input from the joysticks.
  *
  * @author Benjamin Landers
  */
@@ -21,8 +22,8 @@ public class DriveCommand extends CommandBase
     {
         if(!oi.dualClimb)
         {
-            chassis.left.set(-oi.firstJ.getY());
-            chassis.right.set(oi.secondJ.getY());
+            chassis.left.set(-oi.leftJ.getY());
+            chassis.right.set(oi.rightJ.getY());
         }
         else
         {

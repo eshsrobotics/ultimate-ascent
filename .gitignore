@@ -57,3 +57,7 @@ __MACOSX/
 nbproject/
 build.properties
 build.xml
+/build/
+
+
+suite/

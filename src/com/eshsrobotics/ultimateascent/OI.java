@@ -15,21 +15,27 @@ public class OI
      */
     public static final float JOYSTICK_THRESHOLD = 0.05f;
 
-    public static final int startClimbButton = 1;
-    public static final int endClimbButton = 1;
+    public static boolean dualClimb = false;    /* when false, in Drive Mode */
 
-    public static boolean dualClimb = false;
+    public static final int startClimbButtonFirst = 9;
+    public static final int startClimbButtonSecond  = 10;
+    public static final int endClimbButtonFirst  = 11;
+    public static final int endClimbButtonSecond = 12;
+    public static final int cameraButtonRight = 6;
+    public static final int cameraButtonLeft = 5;
 
-    public Joystick firstJ = new Joystick(1);
-    public Joystick secondJ = new Joystick(2);
-    public Joystick climbJ = new Joystick(3);
-    public JoystickButton startClimbB = new JoystickButton(firstJ, startClimbButton);
-    public JoystickButton endClimbB = new JoystickButton(firstJ, endClimbButton);
-
+    public Joystick leftJ = new Joystick(1);
+    public Joystick rightJ = new Joystick(2);
+    public Joystick cameraJ = new Joystick(3);
+    
+    JoystickButton endClimb = new JoystickButton(cameraJ,endClimbButtonFirst);  
+    JoystickButton startClimb = new JoystickButton(cameraJ,startClimbButtonFirst); 
+    
     public OI()
     {
         System.out.println("Operator interface instantiated.");
-        startClimbB.whenPressed(new ChangeClimbSystem());
+        endClimb.whenPressed(new ChangeClimbSystem(false, endClimbButtonSecond));
+        startClimb.whenPressed(new ChangeClimbSystem(true, startClimbButtonSecond));
     }
 }
 

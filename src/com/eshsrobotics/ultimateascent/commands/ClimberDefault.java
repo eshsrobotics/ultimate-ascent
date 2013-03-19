@@ -26,24 +26,24 @@ public class ClimberDefault extends CommandBase
         // Throttle to climber motor commands have been tuned based on integration tests.
         // Difference in left and right climber motor command constants compensate for the
         // discrepancy in strength of left and right climber motors.
-        climber.leftS.set(-oi.climbJ.getThrottle() / 4.5 + .25);
-        climber.rightS.set(oi.climbJ.getThrottle() / 6 + .15);
+        climber.leftS.set(-oi.cameraJ.getThrottle() / 4.5 + .25);
+        climber.rightS.set(oi.cameraJ.getThrottle() / 6 + .15);
 
-        if(!oi.dualClimb)
+        if(!OI.dualClimb)
         {
-            if(!oi.climbJ.getRawButton(12))
+            if(!oi.cameraJ.getRawButton(OI.cameraButtonRight))
             {
-                climber.leftM.set(-oi.climbJ.getY());
-                climber.leftSecondaryM.set((-oi.climbJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                climber.leftM.set(-oi.cameraJ.getY());
+                climber.leftSecondaryM.set((-oi.cameraJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
             }
 
-            if(!oi.climbJ.getRawButton(11))
+            if(!oi.cameraJ.getRawButton(OI.cameraButtonLeft))
             {
-                climber.rightM.set(-oi.climbJ.getY());
-                climber.rightSecondaryM.set((-oi.climbJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                climber.rightM.set(-oi.cameraJ.getY());
+                climber.rightSecondaryM.set((-oi.cameraJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
             }
 
-            if(oi.climbJ.getTrigger())
+            if(oi.cameraJ.getTrigger())
             { //button to full reverse
                 climber.leftM.set(-1);
                 climber.rightM.set(-1);
@@ -54,13 +54,13 @@ public class ClimberDefault extends CommandBase
         }
         else
         {
-            climber.leftM.set(-oi.firstJ.getY());
-            climber.leftSecondaryM.set((-oi.firstJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+            climber.leftM.set(-oi.leftJ.getY());
+            climber.leftSecondaryM.set((-oi.leftJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
 
-            climber.rightM.set(-oi.secondJ.getY());
-            climber.rightSecondaryM.set((-oi.secondJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+            climber.rightM.set(-oi.rightJ.getY());
+            climber.rightSecondaryM.set((-oi.rightJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
 
-            if(oi.firstJ.getTrigger())
+            if(oi.leftJ.getTrigger() || oi.rightJ.getTrigger())
             { //button to full reverse
                 climber.leftM.set(-1);
                 climber.rightM.set(-1);

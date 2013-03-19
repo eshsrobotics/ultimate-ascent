@@ -24,4 +24,5 @@ public class RobotMap
     //---------------------Sensors---------------------
     public static final int driveG = 1;
     public static final int climbG = 2;
+    
 }
