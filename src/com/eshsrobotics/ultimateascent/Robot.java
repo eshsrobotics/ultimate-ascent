@@ -46,13 +46,9 @@ public class Robot extends IterativeRobot
     public void teleopInit()
     {
         autonomousCommand.cancel();
-<<<<<<< HEAD
-        Log.v(TAG, "Autonomous command stopped.");
         CommandBase.climber.gyro.reset();
         System.out.println("Gyro resetted");
-=======
         System.out.println("Autonomous command stopped.");
->>>>>>> parent of 44d68ba... Added logging system.
 
         OI.dualClimb = false;
         System.out.println("Dual climb set to false.");

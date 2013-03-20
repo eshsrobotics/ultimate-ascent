@@ -33,15 +33,9 @@ public class OI
     
     public OI()
     {
-<<<<<<< HEAD
-        Log.v(TAG, "Operator interface instantiated.");
-
         endClimb.whenPressed(new ChangeClimbSystem(false, endClimbButtonSecond));
         startClimb.whenPressed(new ChangeClimbSystem(true, startClimbButtonSecond));
-=======
         System.out.println("Operator interface instantiated.");
-        startClimbB.whenPressed(new ChangeClimbSystem());
->>>>>>> parent of 44d68ba... Added logging system.
     }
 }
 

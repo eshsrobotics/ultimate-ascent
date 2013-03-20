@@ -1,11 +1,8 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 import com.eshsrobotics.ultimateascent.OI;
-<<<<<<< HEAD
-import com.eshsrobotics.ultimateascent.util.Log;
 import com.eshsrobotics.ultimateascent.RobotMap;
-=======
->>>>>>> parent of 44d68ba... Added logging system.
+
 
 /**
  * Default command for Climber subsystem. Responsible for control of the climbing mechanism. Can currently extend and

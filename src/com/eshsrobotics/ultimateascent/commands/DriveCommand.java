@@ -21,8 +21,8 @@ public class DriveCommand extends CommandBase
     {
         if(!oi.dualClimb)
         {
-            chassis.left.set(-oi.firstJ.getY());
-            chassis.right.set(oi.secondJ.getY());
+            chassis.left.set(-oi.leftJ.getY());
+            chassis.right.set(oi.rightJ.getY());
         }
         else
         {
