@@ -16,9 +16,7 @@ import java.text.SimpleDateFormat;
  * methods.</p>
  *
  * <p>In order of terms of verbosity from at least to most is ERROR, WARN, INFO,
- * DEBUG, VERBOSE. Verbose should never be compiled except during development.
- * Debug logs are compiled in, but stripped at runtime. Error, warning, and info
- * log are always kept.</p>
+ * DEBUG, VERBOSE.</p>
  *
  * <p><b>Tip:</b></p> A good convention is to declare a <code>TAG</code> constant
  * in your class:
