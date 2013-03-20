@@ -29,6 +29,9 @@ public class Climber extends Subsystem
         this.leftS = new Servo(leftS);
         this.rightS = new Servo(rightS);
         this.gyro = new Gyro(gyro);
+        this.gyro.setSensitivity(.007);
+        System.out.println("Sensitivity set");
+        this.gyro.reset();
 
         System.out.println("Climber subsystem instantiated.");
     }

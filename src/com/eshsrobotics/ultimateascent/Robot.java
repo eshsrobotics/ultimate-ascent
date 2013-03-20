@@ -47,6 +47,8 @@ public class Robot extends IterativeRobot
     {
         autonomousCommand.cancel();
         System.out.println("Autonomous command stopped.");
+        CommandBase.climber.gyro.reset();
+        System.out.println("Gyro resetted");
 
         OI.dualClimb = false;
         System.out.println("Dual climb set to false.");
@@ -55,5 +57,15 @@ public class Robot extends IterativeRobot
     public void teleopPeriodic()
     {
         Scheduler.getInstance().run();
+        //System.out.println("JoyLeft: "+ CommandBase.oi.leftJ.getY() +" JoyRight: " +CommandBase.oi.rightJ.getY() +" Joy3: "+CommandBase.oi.cameraJ.getY());
+        //System.out.println("MotorLeft: "+ CommandBase.climber.leftM.getSpeed() +" MotorRight: " +CommandBase.climber.rightM.getSpeed());
+        //System.out.println("Gyro : "+CommandBase.climber.gyro.getAngle());
+        System.out.println("," + CommandBase.oi.leftJ.getY() + 
+                "," + CommandBase.oi.rightJ.getY() + 
+                "," + CommandBase.oi.cameraJ.getY() + 
+                "," + CommandBase.climber.leftM.getSpeed() + 
+                "," +CommandBase.climber.rightM.getSpeed() + 
+                "," + CommandBase.climber.gyro.getAngle() +
+                "," + CommandBase.oi.cameraJ.getThrottle());
     }
 }

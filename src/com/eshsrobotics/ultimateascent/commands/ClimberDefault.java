@@ -1,6 +1,7 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 import com.eshsrobotics.ultimateascent.OI;
+import com.eshsrobotics.ultimateascent.RobotMap;
 
 /**
  * Default command for Climber subsystem. Responsible for control of the climbing mechanism. Can currently extend and
@@ -31,9 +32,48 @@ public class ClimberDefault extends CommandBase
         // Throttle to climber motor commands have been tuned based on integration tests.
         // Difference in left and right climber motor command constants compensate for the
         // discrepancy in strength of left and right climber motors.
+       // System.out.println("Gyro : "+climber.gyro.getAngle());
         climber.leftS.set(-oi.cameraJ.getThrottle() / 4.5 + .25);
         climber.rightS.set(oi.cameraJ.getThrottle() / 6 + .15);
+        if(RobotMap.gyroEnabled)
+        {
+        if(!OI.dualClimb)
+        {
+                climber.leftM.set(-oi.cameraJ.getY());
+              //  System.out.println("SET: "+ -oi.cameraJ.getY() + "GET: "+ climber.leftM.getSpeed());
+                climber.leftSecondaryM.set((-oi.cameraJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+ 
+                climber.rightM.set(-oi.cameraJ.getY());
+                climber.rightSecondaryM.set((-oi.cameraJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
 
+            if(oi.cameraJ.getTrigger())
+            { //button to full reverse
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
+
+                climber.leftSecondaryM.set(0);
+                climber.rightSecondaryM.set(0);
+            }
+        }
+        else
+        {
+            climber.leftM.set(-oi.leftJ.getY());
+            climber.leftSecondaryM.set((-oi.leftJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+
+            climber.rightM.set(-oi.rightJ.getY());
+            climber.rightSecondaryM.set((-oi.rightJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+
+            if(oi.leftJ.getTrigger() || oi.rightJ.getTrigger())
+            { //button to full reverse
+                climber.leftM.set(CLIMB_SPEED);
+                climber.rightM.set(CLIMB_SPEED);
+
+                climber.leftSecondaryM.set(0);
+                climber.rightSecondaryM.set(0);
+            }
+        }    
+        }else
+        {
         if(!OI.dualClimb)
         {
             if(!oi.cameraJ.getRawButton(OI.cameraButtonRight))
@@ -75,7 +115,7 @@ public class ClimberDefault extends CommandBase
             }
         }
     }
-
+    }
     protected boolean isFinished()
     {
         return false;
