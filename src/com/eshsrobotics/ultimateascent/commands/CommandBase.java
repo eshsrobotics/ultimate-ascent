@@ -19,8 +19,8 @@ public abstract class CommandBase extends Command
     public static DriveTrain chassis = new DriveTrain(RobotMap.leftDriveMotor,
             RobotMap.rightDriveMotor, RobotMap.driveG);
     public static Climber climber = new Climber(RobotMap.leftClimbMotor,
-            RobotMap.rightClimbMotor, RobotMap.rightSecondaryMotor,
-            RobotMap.leftSecondaryMotor, RobotMap.leftServo, RobotMap.rightServo,
+            RobotMap.rightClimbMotor,RobotMap.leftSecondaryMotor,
+            RobotMap.rightSecondaryMotor, RobotMap.leftServo, RobotMap.rightServo,
             RobotMap.climbG);
 
     public CommandBase()
