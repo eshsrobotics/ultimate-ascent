@@ -1,7 +1,6 @@
 package com.eshsrobotics.ultimateascent;
 
 import com.eshsrobotics.ultimateascent.commands.ChangeClimbSystem;
-import com.eshsrobotics.ultimateascent.util.Log;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -11,8 +10,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI
 {
-    public final String TAG = "OI";
-
     /**
      * Joystick threshold provides some margin from neutral joystick position.
      */
@@ -36,10 +33,15 @@ public class OI
     
     public OI()
     {
+<<<<<<< HEAD
         Log.v(TAG, "Operator interface instantiated.");
 
         endClimb.whenPressed(new ChangeClimbSystem(false, endClimbButtonSecond));
         startClimb.whenPressed(new ChangeClimbSystem(true, startClimbButtonSecond));
+=======
+        System.out.println("Operator interface instantiated.");
+        startClimbB.whenPressed(new ChangeClimbSystem());
+>>>>>>> parent of 44d68ba... Added logging system.
     }
 }
 

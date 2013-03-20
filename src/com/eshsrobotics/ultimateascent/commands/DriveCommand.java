@@ -1,7 +1,5 @@
 package com.eshsrobotics.ultimateascent.commands;
 
-import com.eshsrobotics.ultimateascent.util.Log;
-
 /**
  * Default drive train command. Simple sets the speed of the jaguars to the input from the joysticks.
  *
@@ -9,8 +7,6 @@ import com.eshsrobotics.ultimateascent.util.Log;
  */
 public class DriveCommand extends CommandBase
 {
-    public final String TAG = "DriveCommand";
-
     public DriveCommand()
     {
         requires(chassis);
@@ -18,7 +14,7 @@ public class DriveCommand extends CommandBase
 
     protected void initialize()
     {
-        Log.v(TAG, "Drive command initialized.");
+        System.out.println("Drive command initialized.");
     }
 
     protected void execute()
@@ -42,7 +38,7 @@ public class DriveCommand extends CommandBase
 
     protected void end()
     {
-        Log.v(TAG, "Drive command ended.");
+        System.out.println("Drive command ended.");
     }
 
     protected void interrupted()
@@ -50,6 +46,6 @@ public class DriveCommand extends CommandBase
         chassis.left.set(0);
         chassis.right.set(0);
 
-        Log.v(TAG, "Drive command interrupted.");
+        System.out.println("Drive command interrupted.");
     }
 }

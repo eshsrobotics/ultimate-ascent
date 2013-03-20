@@ -2,12 +2,10 @@ package com.eshsrobotics.ultimateascent;
 
 import com.eshsrobotics.ultimateascent.commands.AutonomousCommand;
 import com.eshsrobotics.ultimateascent.commands.CommandBase;
-import com.eshsrobotics.ultimateascent.util.Log;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-import java.util.Date;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,10 +16,6 @@ import java.util.Date;
  */
 public class Robot extends IterativeRobot
 {
-    public final String TAG = "Robot";
-
-    public static Date date = new Date();
-
     Command autonomousCommand;
 
     /**
@@ -30,50 +24,42 @@ public class Robot extends IterativeRobot
      */
     public void robotInit()
     {
-        Log.i(TAG, "Robot initialization started.");
-
         autonomousCommand = new AutonomousCommand();
-        Log.v(TAG, "Autonomous command initialized.");
+        System.out.println("Autonomous command initialized. ");
 
         // Initialize all subsystems
         CommandBase.init();
-        Log.i(TAG, "All subsystems initialized successfully.");
+        System.out.println("All subsystems initialized.");
     }
 
     public void autonomousInit()
     {
-        Log.i(TAG, "Autonomous mode initialization started.");
-
         autonomousCommand.start();
-        Log.v(TAG, "Autonomous command started.");
+        System.out.println("Autonomous command started.");
     }
 
     public void autonomousPeriodic()
     {
-        Log.v(TAG, "Begin autonomous periodic iteration:\n" +
-                   "------------------------------------");
-
         Scheduler.getInstance().run();
     }
 
     public void teleopInit()
     {
-        Log.i(TAG, "Teleop mode initialization started.");
-
         autonomousCommand.cancel();
+<<<<<<< HEAD
         Log.v(TAG, "Autonomous command stopped.");
         CommandBase.climber.gyro.reset();
         System.out.println("Gyro resetted");
+=======
+        System.out.println("Autonomous command stopped.");
+>>>>>>> parent of 44d68ba... Added logging system.
 
         OI.dualClimb = false;
-        Log.v(TAG, "Dual climb set to false.");
+        System.out.println("Dual climb set to false.");
     }
 
     public void teleopPeriodic()
     {
-        Log.v(TAG, "Begin teleop periodic iteration:\n" +
-                   "--------------------------------");
-
         Scheduler.getInstance().run();
         
         System.out.println("," + CommandBase.oi.leftJ.getY() + 
@@ -83,13 +69,5 @@ public class Robot extends IterativeRobot
                 "," +CommandBase.climber.rightM.getSpeed() + 
                 "," + CommandBase.climber.gyro.getAngle() +
                 "," + CommandBase.oi.cameraJ.getThrottle());
-    }
-
-    /**
-     * For when a terrible failure occurs.
-     */
-    public static void wtf(String tag, Throwable t)
-    {
-        System.exit(10);
     }
 }
