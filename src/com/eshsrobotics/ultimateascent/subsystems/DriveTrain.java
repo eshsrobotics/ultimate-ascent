@@ -1,6 +1,7 @@
 package com.eshsrobotics.ultimateascent.subsystems;
 
 import com.eshsrobotics.ultimateascent.commands.DriveCommand;
+import com.eshsrobotics.ultimateascent.util.Log;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,6 +13,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrain extends Subsystem
 {
+    public final String TAG = "DriveTrain";
+
     public Jaguar left, right;
     public Gyro gyro;
 
@@ -21,14 +24,14 @@ public class DriveTrain extends Subsystem
         this.right = new Jaguar(right);
         this.gyro = new Gyro(gyro);
 
-        System.out.println("Drive train subsystem instantiated.");
+        Log.v(TAG, "Drive train subsystem instantiated.");
     }
 
     public void initDefaultCommand()
     {
         setDefaultCommand(new DriveCommand());
 
-        System.out.println("Drive train default command set to DriveCommand().");
+        Log.v(TAG, "Drive train default command set to DriveCommand().");
     }
 }
 

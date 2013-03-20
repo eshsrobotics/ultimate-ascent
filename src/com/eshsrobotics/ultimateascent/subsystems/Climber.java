@@ -1,6 +1,7 @@
 package com.eshsrobotics.ultimateascent.subsystems;
 
 import com.eshsrobotics.ultimateascent.commands.ClimberDefault;
+import com.eshsrobotics.ultimateascent.util.Log;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Servo;
@@ -14,6 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Climber extends Subsystem
 {
+    public final String TAG = "Climber";
+
     public Jaguar leftM, rightM;
     public Servo leftS, rightS;
     public Victor leftSecondaryM, rightSecondaryM;
@@ -30,13 +33,13 @@ public class Climber extends Subsystem
         this.rightS = new Servo(rightS);
         this.gyro = new Gyro(gyro);
 
-        System.out.println("Climber subsystem instantiated.");
+        Log.v(TAG, "Climber subsystem instantiated.");
     }
 
     public void initDefaultCommand()
     {
         setDefaultCommand(new ClimberDefault());
 
-        System.out.println("Climber subsystem default command set to ClimberDefault().");
+        Log.v(TAG, "Climber subsystem default command set to ClimberDefault().");
     }
 }

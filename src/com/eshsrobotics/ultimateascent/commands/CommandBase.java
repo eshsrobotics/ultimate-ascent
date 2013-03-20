@@ -4,6 +4,7 @@ import com.eshsrobotics.ultimateascent.OI;
 import com.eshsrobotics.ultimateascent.RobotMap;
 import com.eshsrobotics.ultimateascent.subsystems.Climber;
 import com.eshsrobotics.ultimateascent.subsystems.DriveTrain;
+import com.eshsrobotics.ultimateascent.util.Log;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -15,6 +16,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public abstract class CommandBase extends Command
 {
+    public static final String TAG = "CommandBase";
+
     public static OI oi;
     public static DriveTrain chassis = new DriveTrain(RobotMap.leftDriveMotor,
             RobotMap.rightDriveMotor, RobotMap.driveG);
@@ -37,6 +40,6 @@ public abstract class CommandBase extends Command
     {
         oi = new OI();
 
-        System.out.println("Command base initialized.");
+        Log.v(TAG, "Command base initialized.");
     }
 }

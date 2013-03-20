@@ -1,5 +1,7 @@
 package com.eshsrobotics.ultimateascent.commands;
 
+import com.eshsrobotics.ultimateascent.util.Log;
+
 /**
  * Command for autonomous
  *
@@ -7,6 +9,8 @@ package com.eshsrobotics.ultimateascent.commands;
  */
 public class AutonomousCommand extends CommandBase
 {
+    public final String TAG = "AutonomousCommand";
+
     public AutonomousCommand()
     {
         requires(chassis);
@@ -15,7 +19,7 @@ public class AutonomousCommand extends CommandBase
 
     protected void initialize()
     {
-        System.out.println("Autonomous command initialized.");
+        Log.v(TAG, "Autonomous command initialized.");
     }
 
     protected void execute()
@@ -29,11 +33,11 @@ public class AutonomousCommand extends CommandBase
 
     protected void end()
     {
-        System.out.println("Autonomous command ended.");
+        Log.v(TAG, "Autonomous command ended.");
     }
 
     protected void interrupted()
     {
-        System.out.println("Autonomous command interrupted.");
+        Log.v(TAG, "Autonomous command interrupted.");
     }
 }
