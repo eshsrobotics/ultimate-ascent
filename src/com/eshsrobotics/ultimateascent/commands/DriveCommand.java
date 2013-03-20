@@ -1,13 +1,16 @@
 package com.eshsrobotics.ultimateascent.commands;
 
+import com.eshsrobotics.ultimateascent.util.Log;
 
 /**
- * Default drive train command. Simple sets the speed of the Jaguars to the input from the joysticks.
+ * Default drive train command. Simple sets the speed of the jaguars to the input from the joysticks.
  *
  * @author Benjamin Landers
  */
 public class DriveCommand extends CommandBase
 {
+    public final String TAG = "DriveCommand";
+
     public DriveCommand()
     {
         requires(chassis);
@@ -15,15 +18,15 @@ public class DriveCommand extends CommandBase
 
     protected void initialize()
     {
-        System.out.println("Drive command initialized.");
+        Log.v(TAG, "Drive command initialized.");
     }
 
     protected void execute()
     {
         if(!oi.dualClimb)
         {
-            chassis.left.set(-oi.leftJ.getY());
-            chassis.right.set(oi.rightJ.getY());
+            chassis.left.set(-oi.firstJ.getY());
+            chassis.right.set(oi.secondJ.getY());
         }
         else
         {
@@ -39,7 +42,7 @@ public class DriveCommand extends CommandBase
 
     protected void end()
     {
-        System.out.println("Drive command ended.");
+        Log.v(TAG, "Drive command ended.");
     }
 
     protected void interrupted()
@@ -47,6 +50,6 @@ public class DriveCommand extends CommandBase
         chassis.left.set(0);
         chassis.right.set(0);
 
-        System.out.println("Drive command interrupted.");
+        Log.v(TAG, "Drive command interrupted.");
     }
 }

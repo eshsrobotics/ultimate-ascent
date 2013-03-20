@@ -1,6 +1,7 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 import com.eshsrobotics.ultimateascent.OI;
+import com.eshsrobotics.ultimateascent.util.Log;
 
 /**
  * Default command for Climber subsystem. Responsible for control of the climbing mechanism. Can currently extend and
@@ -10,6 +11,8 @@ import com.eshsrobotics.ultimateascent.OI;
  */
 public class ClimberDefault extends CommandBase
 {
+    public final String TAG = "ClimberDefault";
+
     /**
      * The speed at which the climbing motors should move when a
      */
@@ -22,7 +25,7 @@ public class ClimberDefault extends CommandBase
 
     protected void initialize()
     {
-        System.out.println("Default climber command initialized.");
+        Log.v(TAG, "Default climber command initialized.");
     }
 
     protected void execute()
@@ -88,12 +91,12 @@ public class ClimberDefault extends CommandBase
         climber.leftSecondaryM.set(0);
         climber.rightSecondaryM.set(0);
 
-        System.out.println("Default climber command ended.");
+        Log.v(TAG, "Default climber command ended.");
     }
 
     protected void interrupted()
     {
-        System.out.println("Default climber command interrupted.");
+        Log.v(TAG, "Default climber command interrupted.");
 
         end();
     }
