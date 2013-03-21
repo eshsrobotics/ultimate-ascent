@@ -16,7 +16,7 @@ public class ClimberDefault extends CommandBase
      * The speed at which the climbing motors should move when a
      */
     public static final float CLIMB_SPEED = -1f;
-    public static final int DEGREE_LIMIT = 15; 
+    public static final int DEGREE_LIMIT = 25; 
 
     public ClimberDefault()
     {
@@ -66,18 +66,21 @@ public class ClimberDefault extends CommandBase
             }
             else
             {
-                climber.gyro.reset();
-                climber.leftM.set(-oi.leftJ.getY());
-                climber.leftSecondaryM.set((-oi.leftJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
-                climber.rightM.set(-oi.rightJ.getY());
-                climber.rightSecondaryM.set((-oi.rightJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
-    
+
                 if(oi.leftJ.getTrigger() || oi.rightJ.getTrigger())
                 { //button to full reverse
                     climber.leftM.set(-oi.leftJ.getY()+climber.gyro.getAngle()/DEGREE_LIMIT);
                     climber.rightM.set(-oi.rightJ.getY()-climber.gyro.getAngle()/DEGREE_LIMIT);
                     climber.rightSecondaryM.set(0);
                     climber.leftSecondaryM.set(0);
+                }else
+                {
+                    climber.gyro.reset();
+                    climber.leftM.set(-oi.leftJ.getY());
+                    climber.leftSecondaryM.set((-oi.leftJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                    climber.rightM.set(-oi.rightJ.getY());
+                    climber.rightSecondaryM.set((-oi.rightJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
+                }
                 }
             }    
         }
