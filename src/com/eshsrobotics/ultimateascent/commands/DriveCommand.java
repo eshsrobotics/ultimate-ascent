@@ -1,7 +1,7 @@
 package com.eshsrobotics.ultimateascent.commands;
 
 /**
- * Default drive train command. Simple sets the speed of the jaguars to the input from the joysticks.
+ * Default drive train command. Simple sets the speed of the Jaguars to the input from the joysticks.
  *
  * @author Benjamin Landers
  */
