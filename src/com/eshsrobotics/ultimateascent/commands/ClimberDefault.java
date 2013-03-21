@@ -80,7 +80,7 @@ public class ClimberDefault extends CommandBase
                     climber.leftSecondaryM.set((-oi.leftJ.getY() / 2 > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
                     climber.rightM.set(-oi.rightJ.getY());
                     climber.rightSecondaryM.set((-oi.rightJ.getY() > OI.JOYSTICK_THRESHOLD) ? -1 : 0);
-                }
+                
                 }
             }    
         }
