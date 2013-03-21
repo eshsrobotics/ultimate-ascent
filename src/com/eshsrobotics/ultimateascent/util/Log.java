@@ -2,11 +2,6 @@ package com.eshsrobotics.ultimateascent.util;
 
 import com.eshsrobotics.ultimateascent.Robot;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 /**
  * Heavily inspired by android.util.Log.
  *
@@ -16,9 +11,7 @@ import java.text.SimpleDateFormat;
  * methods.</p>
  *
  * <p>In order of terms of verbosity from at least to most is ERROR, WARN, INFO,
- * DEBUG, VERBOSE. Verbose should never be compiled except during development.
- * Debug logs are compiled in, but stripped at runtime. Error, warning, and info
- * log are always kept.</p>
+ * DEBUG, VERBOSE.</p>
  *
  * <p><b>Tip:</b></p> A good convention is to declare a <code>TAG</code> constant
  * in your class:
@@ -62,18 +55,13 @@ public final class Log
     public static final int ASSERT = 7;
 
     /**
-     * Format for printing date of the log.
-     */
-    private static DateFormat dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss");
-
-    /**
      * Exception class used to capture a stack trace in {@link #wtf(String, String)}.
      */
     private static class TerribleFailure extends Exception
     {
-        TerribleFailure(String msg, Throwable cause)
+        TerribleFailure(String msg)
         {
-            super(msg, cause);
+            super(msg);
         }
     }
 
@@ -112,19 +100,6 @@ public final class Log
     }
 
     /**
-     * Send a {@link #VERBOSE} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     * @param tr An exception to log
-     */
-    public static void v(String tag, String msg, Throwable tr)
-    {
-        println(VERBOSE, tag, msg + '\n' + getStackTraceString(tr));
-    }
-
-    /**
      * Send a {@link #DEBUG} log message.
      *
      * @param tag Used to identify the source of a log message.  It usually identifies
@@ -134,19 +109,6 @@ public final class Log
     public static void d(String tag, String msg)
     {
         println(DEBUG, tag, msg);
-    }
-
-    /**
-     * Send a {@link #DEBUG} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     * @param tr An exception to log
-     */
-    public static void d(String tag, String msg, Throwable tr)
-    {
-        println(DEBUG, tag, msg + '\n' + getStackTraceString(tr));
     }
 
     /**
@@ -162,19 +124,6 @@ public final class Log
     }
 
     /**
-     * Send a {@link #INFO} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     * @param tr An exception to log
-     */
-    public static void i(String tag, String msg, Throwable tr)
-    {
-        println(INFO, tag, msg + '\n' + getStackTraceString(tr));
-    }
-
-    /**
      * Send a {@link #WARN} log message.
      *
      * @param tag Used to identify the source of a log message.  It usually identifies
@@ -187,31 +136,6 @@ public final class Log
     }
 
     /**
-     * Send a {@link #WARN} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     * @param tr An exception to log
-     */
-    public static void w(String tag, String msg, Throwable tr)
-    {
-        println(WARN, tag, msg + '\n' + getStackTraceString(tr));
-    }
-
-    /**
-     * Send a {@link #WARN} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param tr An exception to log
-     */
-    public static void w(String tag, Throwable tr)
-    {
-        println(WARN, tag, getStackTraceString(tr));
-    }
-
-    /**
      * Send an {@link #ERROR} log message.
      *
      * @param tag Used to identify the source of a log message.  It usually identifies
@@ -221,19 +145,6 @@ public final class Log
     public static void e(String tag, String msg)
     {
         println(ERROR, tag, msg);
-    }
-
-    /**
-     * Send a {@link #ERROR} log message and log the exception.
-     *
-     * @param tag Used to identify the source of a log message.  It usually identifies
-     *        the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     * @param tr An exception to log
-     */
-    public static void e(String tag, String msg, Throwable tr)
-    {
-        println(ERROR, tag, msg + '\n' + getStackTraceString(tr));
     }
 
     /**
@@ -269,32 +180,13 @@ public final class Log
      *
      * @param tag Used to identify the source of a log message.
      * @param msg The message you would like logged.
-     * @param tr An exception to log.  May be null.
+     * @param tr An exception to log. May be null.
      */
     public static void wtf(String tag, String msg, Throwable tr)
     {
-        TerribleFailure what = new TerribleFailure(msg, tr);
-        println(ASSERT, tag, getStackTraceString(tr));
+        TerribleFailure what = new TerribleFailure(msg);
+        println(ASSERT, tag, tr.getMessage());
         sWtfHandler.onTerribleFailure(tag, what);
-    }
-
-    /**
-     * Handy function to get a loggable stack trace from a Throwable.
-     *
-     * @param tr An exception to log
-     */
-    public static String getStackTraceString(Throwable tr)
-    {
-        if (tr == null)
-        {
-            return "";
-        }
-
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        tr.printStackTrace(pw);
-
-        return sw.toString();
     }
 
     /**
@@ -340,6 +232,6 @@ public final class Log
         }
 
         // Format: "MM-DD HH:MM:SS: PRIORITY/Tag: Message'
-        System.out.println(dateFormat.format(Robot.date) + ": " + priorityString + "/" + tag + ": " +  msg);
+        System.out.println(Robot.date.toString() + ": " + priorityString + "/" + tag + ": " +  msg);
     }
 }
