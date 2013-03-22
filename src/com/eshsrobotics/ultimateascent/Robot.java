@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Date;
 
 /**
@@ -30,22 +34,22 @@ public class Robot extends IterativeRobot
      */
     public void robotInit()
     {
-        Log.i(TAG, "Robot initialization started.");
+        Log.d(TAG, "Robot initialization started.");
 
         autonomousCommand = new AutonomousCommand();
         Log.v(TAG, "Autonomous command initialized.");
 
         // Initialize all subsystems
         CommandBase.init();
-        Log.i(TAG, "All subsystems initialized successfully.");
+        Log.d(TAG, "All subsystems initialized successfully.");
     }
 
     public void autonomousInit()
     {
-        Log.i(TAG, "Autonomous mode initialization started.");
+        Log.d(TAG, "Autonomous mode initialization started.");
 
         autonomousCommand.start();
-        Log.v(TAG, "Autonomous command started.");
+        Log.d(TAG, "Autonomous command started.");
     }
 
     public void autonomousPeriodic()
@@ -57,15 +61,15 @@ public class Robot extends IterativeRobot
 
     public void teleopInit()
     {
-        Log.i(TAG, "Teleop mode initialization started.");
+        Log.d(TAG, "Teleop mode initialization started.");
 
         autonomousCommand.cancel();
-        Log.v(TAG, "Autonomous command stopped.");
+        Log.d(TAG, "Autonomous command stopped.");
         CommandBase.climber.gyro.reset();
-        Log.v(TAG, "Gyro reset.");
+        Log.d(TAG, "Gyro reset.");
 
         OI.dualClimb = false;
-        Log.v(TAG, "Dual climb set to false.");
+        Log.d(TAG, "Dual climb set to false.");
     }
 
     public void teleopPeriodic()
