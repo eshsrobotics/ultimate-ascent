@@ -35,7 +35,6 @@ public class ClimberDefault extends CommandBase
         // Throttle to climber motor commands have been tuned based on integration tests.
         // Difference in left and right climber motor command constants compensate for the
         // discrepancy in strength of left and right climber motors.
-       // System.out.println("Gyro : "+climber.gyro.getAngle());
         climber.leftS.set(-oi.cameraJ.getThrottle() / 4.5 + .25);
         climber.rightS.set(oi.cameraJ.getThrottle() / 6 + .15);
         if(RobotMap.gyroEnabled)
@@ -118,6 +117,14 @@ public class ClimberDefault extends CommandBase
                 }
             }
         }
+
+        Log.i(TAG, "Left joystick: " + oi.leftJ.getY());
+        Log.i(TAG, "Right joystick: " + oi.rightJ.getY());
+        Log.i(TAG, "Camera joystick: " + oi.cameraJ.getY());
+        Log.i(TAG, "Camera joystick throttle: " + Double.toString(oi.cameraJ.getThrottle()));
+        Log.i(TAG, "Left motor: " + climber.leftM.getSpeed());
+        Log.i(TAG, "Right motor: " + climber.rightM.getSpeed());
+        Log.i(TAG, "Gyro: " + climber.gyro.getAngle());
     }
     protected boolean isFinished()
     {

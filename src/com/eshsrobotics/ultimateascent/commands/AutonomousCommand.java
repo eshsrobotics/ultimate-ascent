@@ -24,6 +24,7 @@ public class AutonomousCommand extends CommandBase
 
     protected void execute()
     {
+        Log.v(TAG, "LOL I DON'T DO ANYTHING.");
     }
 
     protected boolean isFinished()

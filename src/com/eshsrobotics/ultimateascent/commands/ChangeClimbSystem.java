@@ -6,6 +6,7 @@ public class ChangeClimbSystem extends CommandBase
 {
     boolean begin;
     int secondButton;
+
     public ChangeClimbSystem(boolean begin, int secondButton)
     {
         this.begin = begin;
@@ -17,7 +18,6 @@ public class ChangeClimbSystem extends CommandBase
 
     protected void execute()
     {
-
     }
 
     protected boolean isFinished()

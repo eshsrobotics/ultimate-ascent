@@ -33,6 +33,12 @@ public class DriveCommand extends CommandBase
             chassis.right.set(0);
             chassis.left.set(0);
         }
+
+        Log.i(TAG, "Left joystick: " + oi.leftJ.getY());
+        Log.i(TAG, "Right joystick: " + oi.rightJ.getY());
+        Log.i(TAG, "Left motor: " + chassis.left.getSpeed());
+        Log.i(TAG, "Right motor: " + chassis.right.getSpeed());
+        Log.i(TAG, "Gyro: " + chassis.gyro.getAngle());
     }
 
     protected boolean isFinished()

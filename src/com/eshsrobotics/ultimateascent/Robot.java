@@ -50,8 +50,7 @@ public class Robot extends IterativeRobot
 
     public void autonomousPeriodic()
     {
-        Log.v(TAG, "Begin autonomous periodic iteration:\n" +
-                   "------------------------------------");
+        Log.v(TAG, "Begin autonomous periodic iteration:");
 
         Scheduler.getInstance().run();
     }
@@ -63,7 +62,7 @@ public class Robot extends IterativeRobot
         autonomousCommand.cancel();
         Log.v(TAG, "Autonomous command stopped.");
         CommandBase.climber.gyro.reset();
-        System.out.println("Gyro resetted");
+        Log.v(TAG, "Gyro reset.");
 
         OI.dualClimb = false;
         Log.v(TAG, "Dual climb set to false.");
@@ -71,18 +70,9 @@ public class Robot extends IterativeRobot
 
     public void teleopPeriodic()
     {
-        Log.v(TAG, "Begin teleop periodic iteration:\n" +
-                   "--------------------------------");
+        Log.v(TAG, "Begin teleop periodic iteration:");
 
         Scheduler.getInstance().run();
-        
-        System.out.println("," + CommandBase.oi.leftJ.getY() + 
-                "," + CommandBase.oi.rightJ.getY() + 
-                "," + CommandBase.oi.cameraJ.getY() + 
-                "," + CommandBase.climber.leftM.getSpeed() + 
-                "," +CommandBase.climber.rightM.getSpeed() + 
-                "," + CommandBase.climber.gyro.getAngle() +
-                "," + CommandBase.oi.cameraJ.getThrottle());
     }
 
     /**
