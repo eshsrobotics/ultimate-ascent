@@ -1,8 +1,6 @@
 Ultimate Ascent
 ===============
 
-[FRC 2013]
-
 The Game
 --------
 Ultimate Ascent is played by two competing alliances on a flat, 27 x 54 foot field. Each Alliance consists of three
